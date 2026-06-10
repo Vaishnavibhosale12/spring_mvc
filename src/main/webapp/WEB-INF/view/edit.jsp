@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%@ include file="header.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,42 +11,58 @@
 
 <style>
 
-body{
-    font-family: Arial;
-    background: #f2f2f2;
-}
-
-.container{
-    width: 400px;
-    margin: 50px auto;
-    background: white;
+.update-container{
+    margin-left: 260px;
+    margin-top: 80px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px gray;
 }
 
-h2{
+.update-card{
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+    padding: 30px;
+    width: 90%;
+    margin: auto;
+}
+
+.update-card h2{
     text-align: center;
+    color: #1f2d3d;
+    margin-bottom: 25px;
+    font-size: 40px;
 }
 
-input{
+.update-card input{
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-button{
-    width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.update-card button{
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
     background: blue;
     color: white;
-    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.update-card button:hover{
+    background: #0047ab;
 }
 
 .msg{
-    color: green;
     text-align: center;
+    color: green;
+    margin-top: 20px;
 }
 
 </style>
@@ -52,27 +70,47 @@ button{
 </head>
 <body>
 
-<div class="container">
+<div class="update-container">
 
-<h2>Update Student</h2>
+    <div class="update-card">
 
-<form action="updateStudent" method="post">
+        <h2>Update Student</h2>
 
-    <input type="number" name="id" placeholder="Enter Id">
+        <form action="updateStudent" method="post">
 
-    <input type="text" name="name" placeholder="Enter Name">
+            <input type="number"
+                   name="id"
+                   placeholder="Enter Student ID"
+                   required>
 
-    <input type="text" name="city" placeholder="Enter City">
+            <input type="text"
+                   name="name"
+                   placeholder="Enter Student Name"
+                   required>
 
-    <input type="text" name="course" placeholder="Enter Course">
+            <input type="text"
+                   name="city"
+                   placeholder="Enter City"
+                   required>
 
-    <button type="submit">Update Student</button>
+            <input type="text"
+                   name="course"
+                   placeholder="Enter Course"
+                   required>
 
-</form>
+            <button type="submit">
+                Update Student
+            </button>
 
-<h3 class="msg">${msg}</h3>
+        </form>
+
+        <h3 class="msg">${msg}</h3>
+
+    </div>
 
 </div>
 
 </body>
 </html>
+
+<%@ include file="footer.jsp" %>

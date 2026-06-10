@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rt.entity.Student;
@@ -109,7 +110,6 @@ public class StudentController {
 
         return "delete";
     }
- // ---------------- VIEW PAGE ----------------
     @GetMapping("/view")
     public String viewPage() {
 
@@ -148,6 +148,14 @@ public class StudentController {
 
         return "redirect:/viewall";
     }
-
+ 
+        @GetMapping("/contact")
+        public String contact() {
+            return "contact";
+        }
+        @PostMapping("/contact")
+        public String saveContact() {
+            return "contact";
+        }
+    }
    
-}

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%@ include file="header.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,45 +11,57 @@
 
 <style>
 
-body{
-    font-family: Arial;
-    background:#f2f2f2;
+.delete-container{
+    margin-left: 260px;   /* sidebar space */
+    margin-top: 100px;    /* header space */
+    padding: 20px;
 }
 
-.container{
-    width:400px;
-    margin:auto;
-    margin-top:100px;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0px 0px 10px gray;
+.delete-card{
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+    padding: 30px;
+    width: 90%;
+    margin: auto;
 }
 
-h2{
-    text-align:center;
-    color:red;
+.delete-card h2{
+    text-align: center;
+    color: #1f2d3d;
+    margin-bottom: 25px;
+    font-size: 40px;
 }
 
-input{
-    width:100%;
-    padding:10px;
-    margin-top:15px;
+.delete-card input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-button{
-    width:100%;
-    padding:10px;
-    margin-top:15px;
-    background:red;
-    color:white;
-    border:none;
-    font-size:18px;
+.delete-card button{
+    width: 20%;
+    padding: 12px;
+    margin-top: 20px;
+    margin-left: 370px;
+    border: none;
+    border-radius: 5px;
+    background: red;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.delete-card button:hover{
+    background: darkred;
 }
 
 .msg{
-    text-align:center;
-    color:green;
+    text-align: center;
+    color: green;
+    margin-top: 20px;
 }
 
 </style>
@@ -55,25 +69,32 @@ button{
 </head>
 <body>
 
-<div class="container">
+<div class="delete-container">
 
-<h2>Delete Student</h2>
+    <div class="delete-card">
 
-<form action="deleteStudent" method="post">
+        <h2>Delete Student</h2>
 
-    <input type="text" 
-    name="id" 
-    placeholder="Enter Student Id">
+        <form action="deleteStudent" method="post">
 
-    <button type="submit">
-        Delete Student
-    </button>
+            <input type="text"
+                   name="id"
+                   placeholder="Enter Student ID"
+                   required>
 
-</form>
+            <button type="submit">
+                Delete Student
+            </button>
 
-<h3 class="msg">${msg}</h3>
+        </form>
+
+        <h3 class="msg">${msg}</h3>
+
+    </div>
 
 </div>
 
 </body>
 </html>
+
+<%@ include file="footer.jsp" %>
